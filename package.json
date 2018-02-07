@@ -157,8 +157,10 @@
     "@angular/router": "^5.2.3",
     "@angular/service-worker": "^5.2.3",
     "core-js": "^2.5.3",
+    "font-awesome": "^4.7.0",
     "gulp-typescript": "^3.2.4",
     "intl": "^1.2.5",
+    "primeng": "^5.2.0",
     "rxjs": "^5.5.3",
     "systemjs": "0.21.0",
     "zone.js": "0.8.20"

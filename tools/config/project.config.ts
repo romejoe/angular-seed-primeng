@@ -1,6 +1,8 @@
 import { join } from 'path';
 
 import { SeedConfig } from './seed.config';
+import { ExtendPackages } from './seed.config.interfaces';
+
 // import { ExtendPackages } from './seed.config.interfaces';
 
 /**
@@ -10,6 +12,21 @@ import { SeedConfig } from './seed.config';
 export class ProjectConfig extends SeedConfig {
 
   PROJECT_TASKS_DIR = join(process.cwd(), this.TOOLS_DIR, 'tasks', 'project');
+
+  PRIME_NG_THEME = 'omega';
+  CSS_IMAGE_DEST = `${this.CSS_DEST}/images`;
+  CSS_IMAGE_SRC = [
+    'node_modules/primeng/resources/themes/' + this.PRIME_NG_THEME + '/images/**'
+  ];
+
+  THEME_FONTS_DEST = `${this.APP_DEST}/css/fonts`;
+  THEME_FONTS_SRC = [
+    'node_modules/primeng/resources/themes/' + this.PRIME_NG_THEME + '/fonts/**',
+  ];
+
+  FONTS_DEST = `${this.APP_DEST}/fonts`;
+  FONTS_SRC = ['node_modules/font-awesome/fonts/**'];
+
 
   constructor() {
     super();
@@ -22,6 +39,9 @@ export class ProjectConfig extends SeedConfig {
     // Add `NPM` third-party libraries to be injected/bundled.
     this.NPM_DEPENDENCIES = [
       ...this.NPM_DEPENDENCIES,
+      {src: 'primeng/resources/primeng.css', inject: true},
+      {src: 'primeng/resources/themes/' + this.PRIME_NG_THEME + '/theme.css', inject: true},
+      {src: 'font-awesome/css/font-awesome.min.css', inject: true},
       // {src: 'jquery/dist/jquery.min.js', inject: 'libs'},
       // {src: 'lodash/lodash.min.js', inject: 'libs'},
     ];
@@ -43,13 +63,15 @@ export class ProjectConfig extends SeedConfig {
     ];
 
     // Add packages (e.g. ng2-translate)
-    // const additionalPackages: ExtendPackages[] = [{
-    //   name: 'ng2-translate',
-    //   // Path to the package's bundle
-    //   path: 'node_modules/ng2-translate/bundles/ng2-translate.umd.js'
-    // }];
-    //
-    // this.addPackagesBundles(additionalPackages);
+    const additionalPackages: ExtendPackages[] = [{
+      name: 'primeng',
+      path: 'node_modules/primeng',
+      packageMeta: {
+        defaultExtension: 'js'
+      }
+    }];
+
+    this.addPackagesBundles(additionalPackages);
 
     /* Add proxy middleware */
     // this.PROXY_MIDDLEWARE = [
