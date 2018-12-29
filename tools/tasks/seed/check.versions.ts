@@ -1,8 +1,10 @@
-import * as util from 'gulp-util';
+import * as colors from 'ansi-colors';
+import * as log from 'fancy-log';
+
 import Config from '../../config';
 
 function reportError(message: string) {
-  console.error(util.colors.white.bgRed.bold(message));
+  log.error(colors.white.bgRed.bold(message));
   process.exit(1);
 }
 
@@ -15,7 +17,7 @@ export = () => {
   const semver = require('semver');
 
   exec('npm --version',
-    function(error: Error, stdout: NodeBuffer, stderr: NodeBuffer) {
+    function(error: Error, stdout: any, stderr: any) {
       if (error !== null) {
         reportError('npm preinstall error: ' + error + stderr);
       }
@@ -26,7 +28,7 @@ export = () => {
     });
 
   exec('node --version',
-    function(error: Error, stdout: NodeBuffer, stderr: NodeBuffer) {
+    function(error: Error, stdout: any, stderr: any) {
       if (error !== null) {
         reportError('npm preinstall error: ' + error + stderr);
       }

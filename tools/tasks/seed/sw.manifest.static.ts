@@ -1,10 +1,11 @@
+import * as colors from 'ansi-colors';
+import * as log from 'fancy-log';
 import * as gulp from 'gulp';
-import * as util from 'gulp-util';
 import Config from '../../config';
 import { join } from 'path';
 
 function reportError(message: string) {
-  console.error(util.colors.white.bgRed.bold(message));
+  log.error(colors.white.bgRed.bold(message));
   process.exit(1);
 }
 
@@ -15,11 +16,11 @@ export = () => {
   // @angular/service-worker's NGSW CLI
   const sw = join('node_modules', '.bin', 'ngsw-config');
   const src = join('.', 'src', 'client', 'ngsw-config.json');
-  exec(`${sw} ${Config.APP_DEST} ${src}`, function(error: Error, stdout: NodeBuffer, stderr: NodeBuffer) {
+  exec(`${sw} ${Config.APP_DEST} ${src}`, function(error: Error, stdout: any, stderr: any) {
     if (error !== null) {
       reportError('Angular Service Worker config error: ' + error + stderr);
     } else {
-      util.log('Angular Service Worker config success');
+      log('Angular Service Worker config success');
     }
   });
 
