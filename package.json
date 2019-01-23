@@ -117,7 +117,7 @@
     "minimatch": "^3.0.4",
     "node-sass-magic-importer": "^5.2.0",
     "open": "0.0.5",
-    "remap-istanbul": "^0.12.0",
+    "remap-istanbul": "^0.13.0",
     "rimraf": "^2.6.2",
     "rollup": "~0.68.0",
     "rollup-plugin-commonjs": "^9.1.5",
@@ -141,7 +141,7 @@
     "yargs": "^12.0.1"
   },
   "dependencies": {
-    "@angular-devkit/build-optimizer": "0.11.4",
+    "@angular-devkit/build-optimizer": "0.12.2",
     "@angular/animations": "^7.0.0",
     "@angular/common": "^7.0.0",
     "@angular/compiler": "^7.0.0",
@@ -151,7 +151,7 @@
     "@angular/platform-browser-dynamic": "^7.0.0",
     "@angular/router": "^7.0.0",
     "@angular/service-worker": "^7.0.0",
-    "core-js": "2.6.1",
+    "core-js": "2.6.2",
     "intl": "^1.2.5",
     "rxjs": "^6.2.2",
     "systemjs": "0.21.5",
