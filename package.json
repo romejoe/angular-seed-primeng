@@ -157,6 +157,6 @@
     "systemjs": "0.21.5",
     "zone.js": "~0.8.26",
     "font-awesome": "^4.7.0",
-    "primeng": "^7.0.3"
+    "primeng": "^9.0.0"
   }
 }
