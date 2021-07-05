@@ -36,7 +36,9 @@
     "e2e.ci": "gulp build.prod.rollup.aot --color && gulp e2e --color",
     "tests.all": "npm test && npm run e2e.ci",
     "compodoc": "./node_modules/.bin/compodoc -p src/client/tsconfig.json",
-    "serve.compodoc": "./node_modules/.bin/compodoc -s"
+    "serve.compodoc": "./node_modules/.bin/compodoc -s",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "author": "Minko Gechev <mgechev>",
   "license": "MIT",
@@ -157,6 +159,8 @@
     "systemjs": "0.21.5",
     "zone.js": "~0.8.26",
     "font-awesome": "^4.7.0",
-    "primeng": "^7.0.3"
-  }
+    "primeng": "^7.0.3",
+    "snyk": "^1.653.0"
+  },
+  "snyk": true
 }
